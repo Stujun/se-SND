@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 280px; font-family: 'Malgun Gothic', sans-serif; padding: 12px; margin: 0; background: #f9f9f9; color: #333; }
+    h3 { font-size: 15px; margin-top: 0; margin-bottom: 10px; color: #0056b3; text-align: center; }
+    .setting-group { background: #fff; padding: 8px 10px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e0e0e0; font-size: 12px; }
+    .setting-group label { display: block; margin-bottom: 4px; font-weight: bold; }
+    .setting-group input[type="number"], .setting-group select { width: 100%; padding: 4px; box-sizing: border-box; font-size: 12px; }
+    .checkbox-label { font-weight: normal !important; display: flex !important; align-items: center; cursor: pointer; }
+    .checkbox-label input { margin-right: 6px; }
+    button { width: 100%; padding: 10px; font-size: 14px; font-weight: bold; cursor: pointer; border: none; border-radius: 6px; color: #fff; background: #007bff; transition: background 0.2s; margin-bottom: 6px; }
+    button.stop { background: #dc3545; }
+    button.skip-step { background: #28a745; }
+    button:disabled { background: #ccc; cursor: not-allowed; }
+    #status { text-align: center; font-size: 11px; margin-top: 6px; color: #666; }
+  </style>
+</head>
+<body>
+  <h3>자동 풀이 제어판</h3>
+  
+  <div class="setting-group">
+    <label for="typingSpeed">타이핑 속도 (ms / 글자당):</label>
+    <input type="number" id="typingSpeed" value="60" min="10" max="1000" step="10">
+  </div>
+
+  <div class="setting-group">
+    <label for="solveMode">풀이 모드 선택:</label>
+    <select id="solveMode">
+      <option value="all">한영 및 타이핑 모두 자동</option>
+      <option value="choice">한영 풀이(객관식)만 우선</option>
+      <option value="typing">타이핑 풀이만 우선</option>
+    </select>
+  </div>
+
+  <div class="setting-group">
+    <label class="checkbox-label">
+      <input type="checkbox" id="skipVoca2" checked> voca_2 (기초학습 발음) 자동 스킵
+    </label>
+    <label class="checkbox-label" style="margin-top: 4px;">
+      <input type="checkbox" id="notifyOnComplete" checked> 학습 완료 시 알림 받기
+    </label>
+    <label class="checkbox-label" style="margin-top: 4px;">
+      <input type="checkbox" id="advancedDebug" checked> 고급 디버그 로그 활성화
+    </label>
+  </div>
+
+  <button id="toggle">자동 풀이 시작</button>
+  <button id="skipStep" class="skip-step">현재 단계 건너뛰기</button>
+  <div id="status">대기 중...</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

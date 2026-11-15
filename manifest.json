@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "se-SND Pro",
+  "version": "2.0",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "tabs",
+    "notifications",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://lms.sevenenglish.net/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
